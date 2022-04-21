@@ -44,7 +44,7 @@ public class Employee {
 		public Employee(String name, int age, boolean gender) 
 {
 	 this.firstName = firstName;
-    this.lastName = age;
+    this.lastName = lastName;
 
     boolean f = female;
     boolean m = male;
