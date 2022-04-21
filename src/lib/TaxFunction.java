@@ -16,23 +16,58 @@ public class TaxFunction {
 	 * 
 	 */
 	
-	public class Income{
-		public static void main(String args[])
-		{
-			double tax=0,it;
-			Scanner sc=new Scanner(System.in);System.out.println("masukan data keuangan keluarga anda");
-			it=sc.nextDouble();
-			if (it<=4500000)
-				tax=0;
-				else if(it<=300000)
-				tax=0.5*(it-4500000);
-			else if(it<=500000)
-				tax=(0.5*(it-300000))+(0.5*100000);
-			else if(it<=1000000)
-				tax=(0.5*(it-500000))+(0.5*200000)+(0.5*100000);
-			else
-				tax=(0.5*(it-1000000))+(0.5*500000)+(0.5*200000)+(0.5*100000);
-			System.out.println("Peghasilan dari yang dipotong di keluarga anda "+tax);
+	public class TaxCalculator {
+		static void calculate() {
+	
+			final double RATE1 = 0.20;
+			final double RATE2 = 0.25;
+			final double RATE3 = 0.10;
+			final double RATE4 = 0.15;
+			final double RATE5 = 0.30;
+			final double RATE1_SINGLE_LIMIT = 0;
+			final double RATE2_MARRIED_LIMIT = 0;
+			final double RATE3_COHABITATING_LIMIT = 20000;
+			final double RATE4_COHABITATING_LIMIT = 50000;
+			double tax = 0;
+			Scanner in = new Scanner(System.in);
+			//Enter Income
+			System.out.print("Please enter your income: ");
+			double income = in.nextDouble();
+			in.nextLine();
+	
+			System.out.print("Please enter 's' for single, 'm' for married, or 'c' for cohabitating: ");
+			String maritalStatus = in.next();
+			in.nextLine();
+	
+			//Calculate Taxes
+	
+			if (maritalStatus.equals("s") && income > RATE1_SINGLE_LIMIT) {
+				tax = RATE1 * income;
+			} else if (maritalStatus.equals("m") && income > RATE2_MARRIED_LIMIT) {
+				tax = RATE2 * income;
+			} else if (maritalStatus.equals("c") && income <= RATE3_COHABITATING_LIMIT) {
+				tax = RATE3 * income;
+			} else if (maritalStatus.equals("c") && income <= RATE4_COHABITATING_LIMIT) {
+				tax = RATE4 * income;
+			} else {
+				tax = RATE5 * income;
+			}
+	
+			System.out.print("Your tax is: " + tax);
+	
+		}
+	
+		public static void main(String[] args) {
+			Scanner in = new Scanner(System.in);
+			String newResponse = "";
+			do {
+				calculate();
+				System.out.println();
+				System.out.println("Process another response?. Please enter 'y' for yes, or 'n' for no: ");
+				newResponse = in.next();
+				in.nextLine();
+			} while (newResponse.equals("y"));
+	
 		}
 	}
 
