@@ -19,10 +19,10 @@ public class Employee {
 	private int monthWorkingInYear;
 	
 	private boolean isForeigner;
-	private boolean gender;
-	private boolean male;
-	private boolean female; //true = Laki-laki, false = Perempuan
+	private boolean gender; //true = Laki-laki, false = Perempuan
 	
+	
+
 	private int monthlySalary;
 	private int otherMonthlyIncome;
 	private int annualDeductible;
@@ -33,21 +33,65 @@ public class Employee {
 	private List<String> childNames;
 	private List<String> childIdNumbers;
 	
-	public Employee(String employeeId, String firstName, String lastName, String idNumber, String address, int yearJoined, int monthJoined, int dayJoined, boolean isForeigner, boolean gender) {
-		this.employeeId = employeeId;
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.idNumber = idNumber;
-		this.address = address;
-		this.yearJoined = yearJoined;
-		this.monthJoined = monthJoined;
-		this.dayJoined = dayJoined;
-		this.isForeigner = isForeigner;
-		this.gender = gender;
-		
-		childNames = new LinkedList<String>();
-		childIdNumbers = new LinkedList<String>();
+	public class Employee {
+		private String name;
+		private int age;
+		private boolean gender;
+		private boolean male;
+		private boolean female;
+		public Employee(String name, int age, boolean gender) 
+{
+	 this.name = name;
+    this.age = age;
+
+    boolean f = female;
+    boolean m = male;
+
+    if (gender = f)
+    {
+        System.out.print("female");
+    }
+
+    else if (gender = m)
+    {
+        System.out.print("male");
+    }
+}
+
+public String getName() {
+    return name;
+}
+
+public void setName(String name) {
+    this.name = name;
+}
+
+public int getAge() {
+    return age;
+}
+
+public void setAge(int age) {
+    this.age = age;
+}
+
+public boolean isGender() {
+    return gender;
+}
+
+public void setGender(boolean gender) 
+{
+    if (gender = f)
+    {
+        System.out.print("female");
+    }
+
+    else if (gender = m)
+    {
+        System.out.print("male");
+    }
+}
 	}
+	
 	
 	/**
 	 * Fungsi untuk menentukan gaji bulanan pegawai berdasarkan grade kepegawaiannya (grade 1: 3.000.000 per bulan, grade 2: 5.000.000 per bulan, grade 3: 7.000.000 per bulan)
