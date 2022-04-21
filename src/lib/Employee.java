@@ -34,15 +34,15 @@ public class Employee {
 	private List<String> childIdNumbers;
 	
 	public class Employee {
-		private String name;
-		private int age;
+		private String firstName;
+		private String lastName;
 		private boolean gender;
 		private boolean male;
 		private boolean female;
 		public Employee(String name, int age, boolean gender) 
 {
-	 this.name = name;
-    this.age = age;
+	 this.firstName = firstName;
+    this.lastName = age;
 
     boolean f = female;
     boolean m = male;
