@@ -1,5 +1,7 @@
 package lib;
 
+
+
 public class TaxFunction {
 
 	
@@ -8,37 +10,32 @@ public class TaxFunction {
 	 * 
 	 * Pajak dihitung sebagai 5% dari penghasilan bersih tahunan (gaji dan pemasukan bulanan lainnya dikalikan jumlah bulan bekerja dikurangi pemotongan) dikurangi penghasilan tidak kena pajak.
 	 * 
-	 * Jika pegawai belum menikah dan belum punya anak maka penghasilan tidak kena pajaknya adalah Rp 54.000.000.
+	 * Jika pegawai belum menikah dan belum punya anak maka penghasilan tidak kena pajaknya adalah Rp 	0.000.
 	 * Jika pegawai sudah menikah maka penghasilan tidak kena pajaknya ditambah sebesar Rp 4.500.000.
 	 * Jika pegawai sudah memiliki anak maka penghasilan tidak kena pajaknya ditambah sebesar Rp 4.500.000 per anak sampai anak ketiga.
 	 * 
 	 */
 	
-	
-	public static int calculateTax(int monthlySalary, int otherMonthlyIncome, int numberOfMonthWorking, int deductible, boolean isMarried, int numberOfChildren) {
-		
-		int tax = 0;
-		
-		if (numberOfMonthWorking > 12) {
-			System.err.println("More than 12 month working per year");
+	public class Income{
+		public static void main(String args[])
+		{
+			double tax=0,it;
+			Scanner sc=new Scanner(System.in);System.out.println("masukan data keuangan keluarga anda");
+			it=sc.nextDouble();
+			if (it<=4500000)
+				tax=0;
+				else if(it<=300000)
+				tax=5*(it-4500000);
+			else if(it<=500000)
+				tax=(5*(it-300000))+(0.1*100000);
+			else if(it<=1000000)
+				tax=(0.3*(it-500000))+(0.2*200000)+(0.1*100000);
+			else
+				tax=(0.4*(it-1000000))+(0.3*500000)+(0.2*200000)+(0.1*100000);
+			System.out.println("Peghasilan dari yang dipotong di keluarga anda "+tax);
 		}
-		
-		if (numberOfChildren > 3) {
-			numberOfChildren = 3;
-		}
-		
-		if (isMarried) {
-			tax = (int) Math.round(0.05 * (((monthlySalary + otherMonthlyIncome) * numberOfMonthWorking) - deductible - (54000000 + 4500000 + (numberOfChildren * 1500000))));
-		}else {
-			tax = (int) Math.round(0.05 * (((monthlySalary + otherMonthlyIncome) * numberOfMonthWorking) - deductible - 54000000));
-		}
-		
-		if (tax < 0) {
-			return 0;
-		}else {
-			return tax;
-		}
-			 
 	}
+
+	
 	
 }
