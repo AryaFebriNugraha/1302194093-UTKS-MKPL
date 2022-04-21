@@ -132,10 +132,25 @@ public void setGender(boolean gender)
 		this.spouseIdNumber = idNumber;
 	}
 	
-	public void addChild(String childName, String childIdNumber) {
-		childNames.add(childName);
-		childIdNumbers.add(childIdNumber);
+	public addChild(String childName, String childIdNumber) {
+		this.childName = childName;
+		this.childIdNumber = childIdNumber;
+
 	}
+	public String getAddChild() {
+		return addChild;
+	  }
+	public void setaddChild() { 
+		this.addChild = addChild;         
+	  }
+	  public String childIdNumber() {
+		return addChild;
+	  }
+	  public static void main(String[] args) {
+		addChild p1 = new addChild("Nama anak");
+		addChild p2 = new Partner("Nama anak ");
+	
+	  }
 	
 	public int getAnnualIncomeTax() {
 		
